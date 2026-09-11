@@ -1,0 +1,651 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Your shopping cart — The Resin Studio. Review your handcrafted resin pieces before placing your order.">
+
+    <title>Your Cart — The Resin Studio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="main.css">
+
+    <style>
+        /* =====================================================
+           CART CUSTOMIZATION DETAILS
+        ====================================================== */
+
+        .cart-item-customization {
+            margin-top: 14px;
+            padding: 14px 16px;
+            background: rgba(198, 238, 214, 0.18);
+            border: 1px solid rgba(0, 0, 0, 0.07);
+            border-radius: 12px;
+        }
+
+        .cart-item-customization-title {
+            margin-bottom: 9px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            opacity: 0.65;
+        }
+
+        .cart-item-customization-row {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 6px;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .cart-item-customization-row span:first-child {
+            opacity: 0.6;
+            flex-shrink: 0;
+        }
+
+        .cart-item-customization-row span:last-child {
+            text-align: right;
+            font-weight: 500;
+        }
+
+        .cart-item-name-charge {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(0, 0, 0, 0.07);
+            font-size: 12px;
+            opacity: 0.75;
+        }
+
+        .cart-empty {
+            width: 100%;
+            padding: 70px 30px;
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.65);
+        }
+
+        .cart-empty h3 {
+            margin-bottom: 12px;
+        }
+
+        .cart-empty p {
+            max-width: 460px;
+            margin: 0 auto 24px;
+        }
+
+        .cart-item-remove {
+            cursor: pointer;
+        }
+
+        @media (max-width: 600px) {
+
+            .cart-item-customization-row {
+                flex-direction: column;
+                gap: 2px;
+            }
+
+            .cart-item-customization-row span:last-child {
+                text-align: left;
+            }
+
+            .cart-empty {
+                padding: 50px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         LOADER
+    ====================================================== -->
+
+    <div class="loader" id="loader">
+        <div class="loader-mark">R</div>
+
+        <div class="loader-line">
+            <span></span>
+        </div>
+
+        <p>THE RESIN STUDIO</p>
+    </div>
+
+
+    <!-- =====================================================
+         CUSTOM CURSOR
+    ====================================================== -->
+
+    <div class="cursor"></div>
+    <div class="cursor-ring"></div>
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="header" id="header">
+
+        <a href="index.html" class="logo">
+
+            <div class="logo-mark">
+                R
+            </div>
+
+            <div class="logo-text">
+                THE RESIN
+                <span>STUDIO</span>
+            </div>
+
+        </a>
+
+
+        <nav class="desktop-nav">
+
+            <a href="index.html">Home</a>
+            <a href="artwork.html">Artwork</a>
+            <a href="collections.html">Collections</a>
+            <a href="shop.html">Shop</a>
+            <a href="custom-orders.html">Custom Orders</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+
+        </nav>
+
+
+        <a href="cart.html" class="header-cta active">
+            Cart <span>🛒</span>
+        </a>
+
+
+        <button class="menu-button" id="menuButton" aria-label="Open menu">
+            <span></span>
+            <span></span>
+        </button>
+
+    </header>
+
+
+    <!-- =====================================================
+         MOBILE MENU
+    ====================================================== -->
+
+    <div class="mobile-menu" id="mobileMenu">
+
+        <div class="mobile-menu-inner">
+
+            <div class="mobile-menu-label">
+                THE RESIN STUDIO
+            </div>
+
+            <a href="index.html">Home</a>
+            <a href="artwork.html">Artwork</a>
+            <a href="collections.html">Collections</a>
+            <a href="shop.html">Shop</a>
+            <a href="custom-orders.html">Custom Orders</a>
+            <a href="about.html">About</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+            <a href="cart.html">Cart</a>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         PAGE HERO
+    ====================================================== -->
+
+    <section class="page-hero">
+
+        <div class="page-hero-glow"></div>
+
+        <div class="page-hero-content reveal">
+
+            <div class="eyebrow">
+                Your Selection
+            </div>
+
+            <h1>
+                Your <em>Cart.</em>
+            </h1>
+
+            <p>
+                Review your handcrafted pieces before sending your
+                order details to The Resin Studio.
+            </p>
+
+        </div>
+
+        <div class="page-hero-number">
+            07
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CART
+    ====================================================== -->
+
+    <main>
+
+        <section class="section">
+
+            <div class="section-header reveal">
+
+                <div>
+
+                    <div class="eyebrow">
+                        Shopping Bag
+                    </div>
+
+                    <h2>
+                        Your <em>Pieces.</em>
+                    </h2>
+
+                </div>
+
+                <p class="section-header-description">
+                    Every piece is handmade with care.
+                    Check your selection before continuing.
+                </p>
+
+            </div>
+
+
+            <div class="cart-layout">
+
+
+                <!-- =================================================
+                     CART ITEMS
+                ================================================== -->
+
+                <div class="cart-items" id="cartItems">
+
+                    <!-- JavaScript inserts cart items here -->
+
+                </div>
+
+
+                <!-- =================================================
+                     CART SUMMARY
+                ================================================== -->
+
+                <aside class="cart-summary reveal">
+
+                    <h3>
+                        Order Summary
+                    </h3>
+
+
+                    <div class="summary-row">
+
+                        <span>
+                            Items
+                        </span>
+
+                        <span id="cartItemCount">
+                            0
+                        </span>
+
+                    </div>
+
+
+                    <div class="summary-row">
+
+                        <span>
+                            Subtotal
+                        </span>
+
+                        <span id="cartSubtotal">
+                            0 SAR
+                        </span>
+
+                    </div>
+
+
+                    <div class="summary-row">
+
+                        <span>
+                            Shipping
+                        </span>
+
+                        <span>
+                            Calculated later
+                        </span>
+
+                    </div>
+
+
+                    <div class="summary-row">
+
+                        <span>
+                            Total
+                        </span>
+
+                        <span class="summary-total" id="cartTotal">
+                            0 SAR
+                        </span>
+
+                    </div>
+
+
+                    <a href="checkout.html"
+                        class="primary-button checkout-button">
+
+                        Continue to Order
+
+                        <span>→</span>
+
+                    </a>
+
+
+                    <a href="shop.html"
+                        class="secondary-button"
+                        style="width:100%; margin-top:12px; justify-content:center;">
+
+                        Continue Shopping
+
+                    </a>
+
+                </aside>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CART INFORMATION
+        ====================================================== -->
+
+        <section class="section-dark">
+
+            <div class="section">
+
+                <div class="two-column">
+
+                    <div class="reveal">
+
+                        <div class="eyebrow">
+                            Handmade
+                        </div>
+
+                        <h2>
+                            Made slowly.<br>
+                            Made <em>beautifully.</em>
+                        </h2>
+
+                    </div>
+
+
+                    <div class="content-card reveal">
+
+                        <span class="number-label">
+                            THE RESIN STUDIO
+                        </span>
+
+                        <h3>
+                            A little reminder
+                        </h3>
+
+                        <p>
+                            Resin pieces are handmade individually,
+                            so small differences in colour, texture,
+                            bubbles and pattern may naturally occur.
+                        </p>
+
+                        <p>
+                            These tiny differences are part of what
+                            makes every piece uniquely yours.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             ORDER INFORMATION
+        ====================================================== -->
+
+        <section class="section">
+
+            <div class="section-header reveal">
+
+                <div>
+
+                    <div class="eyebrow">
+                        Before Ordering
+                    </div>
+
+                    <h2>
+                        A few <em>things.</em>
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="three-column">
+
+
+                <article class="content-card reveal">
+
+                    <span class="number-label">
+                        01
+                    </span>
+
+                    <h3>
+                        Handmade
+                    </h3>
+
+                    <p>
+                        Each item is carefully handmade rather than
+                        mass-produced.
+                    </p>
+
+                </article>
+
+
+                <article class="content-card reveal">
+
+                    <span class="number-label">
+                        02
+                    </span>
+
+                    <h3>
+                        Custom
+                    </h3>
+
+                    <p>
+                        Looking for something different?
+                        You can request a custom piece.
+                    </p>
+
+                </article>
+
+
+                <article class="content-card reveal">
+
+                    <span class="number-label">
+                        03
+                    </span>
+
+                    <h3>
+                        Questions
+                    </h3>
+
+                    <p>
+                        If you need help with your order,
+                        contact The Resin Studio before submitting it.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         CART NOTIFICATION
+    ====================================================== -->
+
+    <div class="cart-notification" id="cartNotification">
+
+        <strong>
+            Added to your cart
+        </strong>
+
+        <p id="notificationText">
+            Your item has been added successfully.
+        </p>
+
+        <a href="cart.html">
+            View Cart →
+        </a>
+
+    </div>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="footer">
+
+        <div class="footer-grid">
+
+
+            <div>
+
+                <a href="index.html" class="logo">
+
+                    <div class="logo-mark">
+                        R
+                    </div>
+
+                    <div class="logo-text">
+                        THE RESIN
+                        <span>STUDIO</span>
+                    </div>
+
+                </a>
+
+                <p>
+                    Handcrafted resin art, keepsakes and
+                    meaningful little pieces made with patience,
+                    creativity and care.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Explore
+                </h4>
+
+                <div class="footer-links">
+
+                    <a href="index.html">Home</a>
+                    <a href="artwork.html">Artwork</a>
+                    <a href="collections.html">Collections</a>
+                    <a href="shop.html">Shop</a>
+                    <a href="gallery.html">Gallery</a>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Studio
+                </h4>
+
+                <div class="footer-links">
+
+                    <a href="about.html">About</a>
+                    <a href="process.html">Process</a>
+                    <a href="custom-orders.html">Custom Orders</a>
+                    <a href="journal.html">Journal</a>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Help
+                </h4>
+
+                <div class="footer-links">
+
+                    <a href="faq.html">FAQ</a>
+                    <a href="shipping.html">Shipping</a>
+                    <a href="returns.html">Returns</a>
+                    <a href="policies.html">Policies</a>
+                    <a href="contact.html">Contact</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 The Resin Studio. All rights reserved.
+            </p>
+
+            <p>
+                Handmade with intention.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="main.js"></script>
+
+</body>
+
+</html>
+```

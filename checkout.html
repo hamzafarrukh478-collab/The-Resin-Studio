@@ -1,0 +1,1239 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Checkout — The Resin Studio. Review your handmade resin order and submit your order details.">
+
+    <title>Checkout — The Resin Studio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         CURSOR
+    ========================== -->
+
+    <div class="cursor"></div>
+    <div class="cursor-ring"></div>
+
+
+    <!-- =========================
+         LOADER
+    ========================== -->
+
+    <div class="loader" id="loader">
+
+        <div class="loader-mark">R</div>
+
+        <div class="loader-line">
+            <span></span>
+        </div>
+
+        <p>THE RESIN STUDIO</p>
+
+    </div>
+
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="header" id="header">
+
+        <a href="index.html" class="logo">
+
+            <div class="logo-mark">R</div>
+
+            <div class="logo-text">
+                THE RESIN
+                <span>STUDIO</span>
+            </div>
+
+        </a>
+
+
+        <nav class="desktop-nav">
+
+            <a href="index.html">Home</a>
+            <a href="artwork.html">Artwork</a>
+            <a href="collections.html">Collections</a>
+            <a href="shop.html">Shop</a>
+            <a href="custom-orders.html">Custom Orders</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+
+        </nav>
+
+
+        <a href="cart.html" class="header-cta">
+            Cart
+            <span>→</span>
+        </a>
+
+
+        <button
+            class="menu-button"
+            id="menuButton"
+            aria-label="Open menu"
+            type="button"
+        >
+            <span></span>
+            <span></span>
+        </button>
+
+    </header>
+
+
+    <!-- =========================
+         MOBILE MENU
+    ========================== -->
+
+    <div class="mobile-menu" id="mobileMenu">
+
+        <div class="mobile-menu-inner">
+
+            <div class="mobile-menu-label">
+                THE RESIN STUDIO
+            </div>
+
+            <a href="index.html">Home</a>
+            <a href="artwork.html">Artwork</a>
+            <a href="collections.html">Collections</a>
+            <a href="shop.html">Shop</a>
+            <a href="custom-orders.html">Custom Orders</a>
+            <a href="about.html">About</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+            <a href="cart.html">Cart</a>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main>
+
+
+        <!-- =========================
+             CHECKOUT HERO
+        ========================== -->
+
+        <section class="page-hero">
+
+            <div class="page-hero-glow"></div>
+
+            <div class="page-hero-content reveal">
+
+                <div class="eyebrow">
+                    Your Order
+                </div>
+
+                <h1>
+                    Complete Your <em>Order.</em>
+                </h1>
+
+                <p>
+                    Review your handmade resin pieces and provide your
+                    contact and delivery information.
+                </p>
+
+            </div>
+
+            <div class="page-hero-number">
+                05
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CHECKOUT
+        ========================== -->
+
+        <section class="section">
+
+            <div class="section-header reveal">
+
+                <div>
+
+                    <div class="eyebrow">
+                        Checkout
+                    </div>
+
+                    <h2>
+                        Almost <em>Yours.</em>
+                    </h2>
+
+                </div>
+
+                <p class="section-header-description">
+                    Fill in your details below. Your order will be
+                    prepared and sent to The Resin Studio through WhatsApp.
+                </p>
+
+            </div>
+
+
+            <div class="checkout-layout">
+
+
+                <!-- =========================
+                     CUSTOMER DETAILS
+                ========================== -->
+
+                <div class="checkout-form-area reveal">
+
+                    <form id="whatsappCheckoutForm" novalidate>
+
+
+                        <!-- CONTACT DETAILS -->
+
+                        <div class="checkout-form-section">
+
+                            <div class="checkout-form-heading">
+                                <span>01</span>
+                                <h3>Contact Details</h3>
+                            </div>
+
+
+                            <div class="form-grid">
+
+                                <div class="form-group">
+
+                                    <label for="customerName">
+                                        Full Name
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="customerName"
+                                        name="customerName"
+                                        placeholder="Your name"
+                                        autocomplete="name"
+                                        required
+                                    >
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="customerPhone">
+                                        Phone Number
+                                    </label>
+
+                                    <input
+                                        type="tel"
+                                        id="customerPhone"
+                                        name="customerPhone"
+                                        placeholder="05XXXXXXXX"
+                                        autocomplete="tel"
+                                        required
+                                    >
+
+                                </div>
+
+
+                                <div class="form-group full">
+
+                                    <label for="customerEmail">
+                                        Email Address
+                                    </label>
+
+                                    <input
+                                        type="email"
+                                        id="customerEmail"
+                                        name="customerEmail"
+                                        placeholder="your@email.com"
+                                        autocomplete="email"
+                                        required
+                                    >
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =========================
+                             DELIVERY DETAILS
+                        ========================== -->
+
+                        <div class="checkout-form-section">
+
+                            <div class="checkout-form-heading">
+                                <span>02</span>
+                                <h3>Delivery Details</h3>
+                            </div>
+
+
+                            <div class="form-grid">
+
+                                <div class="form-group full">
+
+                                    <label for="address">
+                                        Delivery Address
+                                    </label>
+
+                                    <textarea
+                                        id="address"
+                                        name="address"
+                                        placeholder="Enter your complete delivery address"
+                                        autocomplete="street-address"
+                                        required
+                                    ></textarea>
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="city">
+                                        City
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="city"
+                                        name="city"
+                                        placeholder="City"
+                                        autocomplete="address-level2"
+                                        required
+                                    >
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="postalCode">
+                                        Postal Code
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="postalCode"
+                                        name="postalCode"
+                                        placeholder="Postal code"
+                                        autocomplete="postal-code"
+                                    >
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =========================
+                             PAYMENT
+                        ========================== -->
+
+                        <div class="checkout-form-section">
+
+                            <div class="checkout-form-heading">
+                                <span>03</span>
+                                <h3>Payment</h3>
+                            </div>
+
+
+                            <div class="payment-note">
+
+                                <div class="payment-icon">
+                                    ✦
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Payment Information
+                                    </strong>
+
+                                    <p>
+                                        Contact number:
+                                        <b>0545695712</b>
+                                    </p>
+
+                                    <p>
+                                        Payment arrangements will be
+                                        confirmed by The Resin Studio
+                                        after receiving your order.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="paymentMethod">
+                                    Payment Method
+                                </label>
+
+                                <select
+                                    id="paymentMethod"
+                                    name="paymentMethod"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Select payment method
+                                    </option>
+
+                                    <option value="Bank Transfer">
+                                        Bank Transfer
+                                    </option>
+
+                                    <option value="Cash / Arranged Payment">
+                                        Cash / Arranged Payment
+                                    </option>
+
+                                    <option value="Other / Discuss With Studio">
+                                        Other / Discuss With Studio
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =========================
+                             ORDER NOTES
+                        ========================== -->
+
+                        <div class="checkout-form-section">
+
+                            <div class="checkout-form-heading">
+                                <span>04</span>
+                                <h3>Order Notes</h3>
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="orderNotes">
+                                    Additional Notes
+                                </label>
+
+                                <textarea
+                                    id="orderNotes"
+                                    name="orderNotes"
+                                    placeholder="Any special instructions for your order?"
+                                ></textarea>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =========================
+                             SUBMIT
+                        ========================== -->
+
+                        <button
+                            type="submit"
+                            class="primary-button checkout-submit"
+                        >
+                            Send Order via WhatsApp
+                            <span>→</span>
+                        </button>
+
+
+                        <p class="checkout-small-note">
+                            Your order details will be prepared in WhatsApp
+                            for confirmation with The Resin Studio.
+                        </p>
+
+                    </form>
+
+                </div>
+
+
+                <!-- =========================
+                     ORDER SUMMARY
+                ========================== -->
+
+                <aside class="checkout-summary reveal">
+
+                    <div class="checkout-summary-top">
+
+                        <div class="eyebrow">
+                            Order Summary
+                        </div>
+
+                        <h3>
+                            Your <em>Pieces.</em>
+                        </h3>
+
+                    </div>
+
+
+                    <div
+                        id="checkoutItems"
+                        class="checkout-items"
+                    ></div>
+
+
+                    <div class="checkout-summary-lines">
+
+                        <div class="summary-row">
+
+                            <span>
+                                Items
+                            </span>
+
+                            <strong id="checkoutItemCount">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="summary-row">
+
+                            <span>
+                                Subtotal
+                            </span>
+
+                            <strong id="checkoutSubtotal">
+                                0 SAR
+                            </strong>
+
+                        </div>
+
+
+                        <div class="summary-row">
+
+                            <span>
+                                Delivery
+                            </span>
+
+                            <strong>
+                                To be confirmed
+                            </strong>
+
+                        </div>
+
+
+                        <div class="summary-row summary-total">
+
+                            <span>
+                                Total
+                            </span>
+
+                            <strong id="checkoutTotal">
+                                0 SAR
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="checkout-contact">
+
+                        <span>
+                            ORDER INFORMATION
+                        </span>
+
+                        <p>
+                            Orders are confirmed directly through WhatsApp.
+                        </p>
+
+                        <strong>
+                            0545695712
+                        </strong>
+
+                    </div>
+
+
+                    <a
+                        href="cart.html"
+                        class="secondary-button checkout-back"
+                    >
+                        ← Back To Cart
+                    </a>
+
+                </aside>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             TRUST SECTION
+        ========================== -->
+
+        <section class="section-dark">
+
+            <div class="section">
+
+                <div class="three-column">
+
+
+                    <div class="content-card reveal">
+
+                        <span class="number-label">
+                            01
+                        </span>
+
+                        <h3>
+                            Handmade
+                        </h3>
+
+                        <p class="muted">
+                            Every piece is created with care and
+                            attention to its individual details.
+                        </p>
+
+                    </div>
+
+
+                    <div class="content-card reveal">
+
+                        <span class="number-label">
+                            02
+                        </span>
+
+                        <h3>
+                            Personal
+                        </h3>
+
+                        <p class="muted">
+                            Your order is prepared specifically for
+                            you and your chosen pieces.
+                        </p>
+
+                    </div>
+
+
+                    <div class="content-card reveal">
+
+                        <span class="number-label">
+                            03
+                        </span>
+
+                        <h3>
+                            Yours
+                        </h3>
+
+                        <p class="muted">
+                            From resin art to everyday accessories,
+                            every creation has its own character.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer">
+
+        <div class="footer-grid">
+
+
+            <div>
+
+                <a href="index.html" class="logo">
+
+                    <div class="logo-mark">
+                        R
+                    </div>
+
+                    <div class="logo-text">
+                        THE RESIN
+                        <span>STUDIO</span>
+                    </div>
+
+                </a>
+
+                <p>
+                    Handcrafted resin art, accessories and
+                    meaningful creations made with patience,
+                    creativity and care.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Explore
+                </h4>
+
+                <div class="footer-links">
+
+                    <a href="index.html">
+                        Home
+                    </a>
+
+                    <a href="artwork.html">
+                        Artwork
+                    </a>
+
+                    <a href="collections.html">
+                        Collections
+                    </a>
+
+                    <a href="gallery.html">
+                        Gallery
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Shop
+                </h4>
+
+                <div class="footer-links">
+
+                    <a href="shop.html">
+                        Shop All
+                    </a>
+
+                    <a href="custom-orders.html">
+                        Custom Orders
+                    </a>
+
+                    <a href="cart.html">
+                        Cart
+                    </a>
+
+                    <a href="shipping.html">
+                        Shipping
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Information
+                </h4>
+
+                <div class="footer-links">
+
+                    <a href="about.html">
+                        About
+                    </a>
+
+                    <a href="contact.html">
+                        Contact
+                    </a>
+
+                    <a href="faq.html">
+                        FAQ
+                    </a>
+
+                    <a href="policies.html">
+                        Policies
+                    </a>
+
+                    <a href="privacy.html">
+                        Privacy
+                    </a>
+
+                    <a href="terms.html">
+                        Terms
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 The Resin Studio. All rights reserved.
+            </span>
+
+            <span>
+                Handcrafted with intention.
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         CART NOTIFICATION
+    ========================== -->
+
+    <div
+        class="cart-notification"
+        id="cartNotification"
+    >
+
+        <strong>
+            Added to Cart
+        </strong>
+
+        <p>
+            Your handmade piece has been added successfully.
+        </p>
+
+        <a href="cart.html">
+            View Cart →
+        </a>
+
+    </div>
+
+
+    <!-- =========================
+         MAIN WEBSITE JAVASCRIPT
+    ========================== -->
+
+    <script src="main.js"></script>
+
+
+    <!-- =========================
+         CHECKOUT JAVASCRIPT
+    ========================== -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const CART_KEY = "resinStudioCart";
+
+            const form = document.getElementById("whatsappCheckoutForm");
+            const itemsContainer = document.getElementById("checkoutItems");
+            const itemCountElement = document.getElementById("checkoutItemCount");
+            const subtotalElement = document.getElementById("checkoutSubtotal");
+            const totalElement = document.getElementById("checkoutTotal");
+
+            if (!form || !itemsContainer) {
+                return;
+            }
+
+
+            function getCart() {
+
+                try {
+                    const storedCart = localStorage.getItem(CART_KEY);
+
+                    if (!storedCart) {
+                        return [];
+                    }
+
+                    const parsedCart = JSON.parse(storedCart);
+
+                    return Array.isArray(parsedCart) ? parsedCart : [];
+
+                } catch (error) {
+
+                    console.error("Unable to read cart:", error);
+
+                    return [];
+                }
+            }
+
+
+            function escapeHTML(value) {
+
+                return String(value ?? "")
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;")
+                    .replace(/"/g, "&quot;")
+                    .replace(/'/g, "&#039;");
+            }
+
+
+            function formatPrice(value) {
+
+                const number = Number(value) || 0;
+
+                return number.toFixed(2) + " SAR";
+            }
+
+
+            function renderCheckout() {
+
+                const cart = getCart();
+
+                itemsContainer.innerHTML = "";
+
+
+                if (cart.length === 0) {
+
+                    itemsContainer.innerHTML = `
+                        <div class="content-card">
+                            <h3>Your cart is empty.</h3>
+                            <p class="muted">
+                                Add some handmade pieces before continuing to checkout.
+                            </p>
+                            <a href="shop.html" class="secondary-button">
+                                Continue Shopping →
+                            </a>
+                        </div>
+                    `;
+
+                    itemCountElement.textContent = "0";
+                    subtotalElement.textContent = "0 SAR";
+                    totalElement.textContent = "0 SAR";
+
+                    form.querySelector("button[type='submit']").disabled = true;
+
+                    return;
+                }
+
+
+                form.querySelector("button[type='submit']").disabled = false;
+
+
+                let itemCount = 0;
+                let subtotal = 0;
+
+
+                cart.forEach(function (item) {
+
+                    const quantity = Math.max(
+                        1,
+                        Number(item.quantity) || 1
+                    );
+
+                    const price = Number(item.price) || 0;
+
+                    const itemTotal = price * quantity;
+
+                    itemCount += quantity;
+                    subtotal += itemTotal;
+
+
+                    const customization = [];
+
+
+                    if (item.color) {
+
+                        customization.push(
+                            "Colour: " + escapeHTML(item.color)
+                        );
+                    }
+
+
+                    if (item.customColor) {
+
+                        customization.push(
+                            "Custom Colour: " +
+                            escapeHTML(item.customColor)
+                        );
+                    }
+
+
+                    if (item.alphabet) {
+
+                        customization.push(
+                            "Alphabet: " +
+                            escapeHTML(item.alphabet)
+                        );
+                    }
+
+
+                    if (item.description) {
+
+                        customization.push(
+                            "Request: " +
+                            escapeHTML(item.description)
+                        );
+                    }
+
+
+                    const imageHTML = item.image
+                        ? `
+                            <img
+                                src="${escapeHTML(item.image)}"
+                                alt="${escapeHTML(item.name || "Resin product")}"
+                            >
+                        `
+                        : "";
+
+
+                    const customizationHTML = customization.length
+                        ? `
+                            <div class="checkout-item-customization">
+                                ${customization.map(function (detail) {
+                                    return `<div>${detail}</div>`;
+                                }).join("")}
+                            </div>
+                        `
+                        : "";
+
+
+                    const itemElement = document.createElement("div");
+
+                    itemElement.className = "checkout-item";
+
+
+                    itemElement.innerHTML = `
+                        ${imageHTML}
+
+                        <div class="checkout-item-info">
+
+                            <div class="eyebrow">
+                                ${escapeHTML(item.category || "Product")}
+                            </div>
+
+                            <h4>
+                                ${escapeHTML(item.name || "Resin Product")}
+                            </h4>
+
+                            <p>
+                                Quantity: ${quantity}
+                            </p>
+
+                            ${customizationHTML}
+
+                        </div>
+
+                        <strong>
+                            ${formatPrice(itemTotal)}
+                        </strong>
+                    `;
+
+
+                    itemsContainer.appendChild(itemElement);
+
+                });
+
+
+                itemCountElement.textContent = String(itemCount);
+
+                subtotalElement.textContent = formatPrice(subtotal);
+
+                totalElement.textContent = formatPrice(subtotal);
+
+            }
+
+
+            form.addEventListener("submit", function (event) {
+
+                event.preventDefault();
+
+
+                const cart = getCart();
+
+
+                if (cart.length === 0) {
+
+                    alert(
+                        "Your cart is empty. Please add a product before submitting your order."
+                    );
+
+                    return;
+                }
+
+
+                if (!form.checkValidity()) {
+
+                    form.reportValidity();
+
+                    return;
+                }
+
+
+                const customerName =
+                    document.getElementById("customerName").value.trim();
+
+                const customerPhone =
+                    document.getElementById("customerPhone").value.trim();
+
+                const customerEmail =
+                    document.getElementById("customerEmail").value.trim();
+
+                const address =
+                    document.getElementById("address").value.trim();
+
+                const city =
+                    document.getElementById("city").value.trim();
+
+                const postalCode =
+                    document.getElementById("postalCode").value.trim();
+
+                const paymentMethod =
+                    document.getElementById("paymentMethod").value;
+
+                const orderNotes =
+                    document.getElementById("orderNotes").value.trim();
+
+
+                let subtotal = 0;
+
+                let totalQuantity = 0;
+
+
+                const orderLines = [];
+
+
+                cart.forEach(function (item, index) {
+
+                    const quantity = Math.max(
+                        1,
+                        Number(item.quantity) || 1
+                    );
+
+                    const price = Number(item.price) || 0;
+
+                    const itemTotal = price * quantity;
+
+                    subtotal += itemTotal;
+
+                    totalQuantity += quantity;
+
+
+                    orderLines.push(
+                        `${index + 1}. ${item.name || "Resin Product"}`
+                    );
+
+                    orderLines.push(
+                        `   Quantity: ${quantity}`
+                    );
+
+                    orderLines.push(
+                        `   Price: ${price.toFixed(2)} SAR each`
+                    );
+
+                    orderLines.push(
+                        `   Item Total: ${itemTotal.toFixed(2)} SAR`
+                    );
+
+
+                    if (item.color) {
+
+                        orderLines.push(
+                            `   Colour: ${item.color}`
+                        );
+                    }
+
+
+                    if (item.customColor) {
+
+                        orderLines.push(
+                            `   Custom Colour: ${item.customColor}`
+                        );
+                    }
+
+
+                    if (item.alphabet) {
+
+                        orderLines.push(
+                            `   Alphabet: ${item.alphabet}`
+                        );
+                    }
+
+
+                    if (item.description) {
+
+                        orderLines.push(
+                            `   Request: ${item.description}`
+                        );
+                    }
+
+
+                    orderLines.push("");
+                });
+
+
+                const message =
+                    `THE RESIN STUDIO — NEW ORDER\n` +
+                    `================================\n\n` +
+
+                    `CUSTOMER DETAILS\n` +
+                    `Name: ${customerName}\n` +
+                    `Phone: ${customerPhone}\n` +
+                    `Email: ${customerEmail}\n\n` +
+
+                    `DELIVERY DETAILS\n` +
+                    `Address: ${address}\n` +
+                    `City: ${city}\n` +
+                    `Postal Code: ${postalCode || "Not provided"}\n\n` +
+
+                    `ORDER DETAILS\n` +
+                    `================================\n` +
+                    orderLines.join("\n") +
+                    `\n` +
+
+                    `SUMMARY\n` +
+                    `Total Items: ${totalQuantity}\n` +
+                    `Subtotal: ${subtotal.toFixed(2)} SAR\n` +
+                    `Delivery: To be confirmed\n` +
+                    `Total: ${subtotal.toFixed(2)} SAR\n\n` +
+
+                    `PAYMENT\n` +
+                    `Method: ${paymentMethod}\n\n` +
+
+                    `ADDITIONAL NOTES\n` +
+                    `${orderNotes || "None"}\n\n` +
+
+                    `================================\n` +
+                    `Order submitted through The Resin Studio website.`;
+
+
+                const whatsappNumber = "966545695712";
+
+                const whatsappURL =
+                    "https://wa.me/" +
+                    whatsappNumber +
+                    "?text=" +
+                    encodeURIComponent(message);
+
+
+                window.location.href = whatsappURL;
+
+            });
+
+
+            renderCheckout();
+
+        });
+    </script>
+
+</body>
+
+</html>
+```

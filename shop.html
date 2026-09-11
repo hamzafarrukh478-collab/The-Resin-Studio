@@ -1,0 +1,1960 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description"
+    content="Shop handcrafted resin keychains, bookmarks, pens, jewellery and accessories from The Resin Studio.">
+
+<title>Shop — The Resin Studio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+<link rel="stylesheet" href="main.css">
+
+<style>
+    /* =====================================================
+       SHOP PAGE HEADER + CUSTOMIZATION MODAL
+    ====================================================== */
+    .header {
+        position: sticky;
+        top: 0;
+        z-index: 900;
+        background: rgba(255, 255, 255, 0.68);
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .customization-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 2000;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        overflow-y: auto;
+    }
+
+    .customization-modal.show {
+        display: flex;
+    }
+
+    .customization-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        background: rgba(15, 15, 15, 0.62);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
+
+    .customization-box {
+        position: relative;
+        z-index: 1;
+        width: min(560px, 100%);
+        max-height: calc(100vh - 48px);
+        overflow-y: auto;
+        background: #fff;
+        border-radius: 18px;
+        padding: 32px;
+        box-shadow: 0 28px 80px rgba(0, 0, 0, 0.28);
+    }
+
+    .customization-close {
+        position: absolute;
+        top: 14px;
+        right: 16px;
+        width: 40px;
+        height: 40px;
+        border: 0;
+        background: transparent;
+        font-size: 30px;
+        line-height: 1;
+        cursor: pointer;
+    }
+
+    .customization-field {
+        margin-top: 18px;
+    }
+
+    .customization-field label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+    }
+
+    .customization-field input,
+    .customization-field select,
+    .customization-field textarea {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .customization-summary {
+        display: grid;
+        gap: 8px;
+        margin-top: 24px;
+        padding: 18px;
+        border-radius: 12px;
+        background: rgba(0, 0, 0, 0.04);
+    }
+
+    .customization-summary-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .customization-summary-total {
+        margin-top: 6px;
+        padding-top: 10px;
+        border-top: 1px solid rgba(0, 0, 0, 0.12);
+    }
+
+    body.customization-open {
+        overflow: hidden;
+    }
+
+    @media (max-width: 600px) {
+        .customization-modal {
+            padding: 14px;
+        }
+
+        .customization-box {
+            padding: 26px 20px;
+            max-height: calc(100vh - 28px);
+        }
+    }
+</style>
+<!-- =====================================================
+     LOADER
+====================================================== -->
+
+<div class="loader">
+    <div class="loader-mark">R</div>
+
+    <div class="loader-line">
+        <span></span>
+    </div>
+
+    <p>THE RESIN STUDIO</p>
+</div>
+
+
+<!-- =====================================================
+     CUSTOM CURSOR
+====================================================== -->
+
+<div class="cursor"></div>
+<div class="cursor-ring"></div>
+
+
+<!-- =====================================================
+     HEADER
+====================================================== -->
+
+<header class="header">
+
+    <a href="index.html" class="logo">
+        <div class="logo-mark">R</div>
+
+        <div class="logo-text">
+            THE RESIN
+            <span>STUDIO</span>
+        </div>
+    </a>
+
+    <nav class="desktop-nav">
+
+        <a href="index.html">Home</a>
+        <a href="artwork.html">Artwork</a>
+        <a href="collections.html">Collections</a>
+        <a href="shop.html" class="active">Shop</a>
+        <a href="custom-orders.html">Custom Orders</a>
+        <a href="about.html">About</a>
+        <a href="process.html">Process</a>
+
+    </nav>
+
+    <a href="cart.html" class="header-cta">
+        Cart
+        <span class="cart-count" id="cartCount" aria-label="Items in cart">0</span>
+        <span>→</span>
+    </a>
+
+    <button class="menu-button"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobileMenu">
+
+        <span></span>
+        <span></span>
+
+    </button>
+
+</header>
+
+
+<!-- =====================================================
+     MOBILE MENU
+====================================================== -->
+
+<div class="mobile-menu" id="mobileMenu">
+
+    <div class="mobile-menu-inner">
+
+        <div class="mobile-menu-label">
+            THE RESIN STUDIO
+        </div>
+
+        <a href="index.html">Home</a>
+        <a href="artwork.html">Artwork</a>
+        <a href="collections.html">Collections</a>
+        <a href="shop.html">Shop</a>
+        <a href="custom-orders.html">Custom Orders</a>
+        <a href="about.html">About</a>
+        <a href="process.html">Process</a>
+
+        <a href="cart.html">
+            Cart
+            <span class="cart-count" id="mobileCartCount">0</span>
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     MAIN
+====================================================== -->
+
+<main>
+
+    <!-- SHOP HERO -->
+
+    <section class="page-hero">
+
+        <div class="page-hero-glow"></div>
+
+        <div class="page-hero-content">
+
+            <div class="eyebrow">
+                The Collection
+            </div>
+
+            <h1>
+                Shop
+                <em>handcrafted.</em>
+            </h1>
+
+            <p>
+                Discover handmade resin pieces created in small
+                quantities with care, creativity and attention
+                to detail.
+            </p>
+
+        </div>
+
+        <div class="page-hero-number">
+            03
+        </div>
+
+    </section>
+
+
+    <!-- SHOP -->
+
+    <section class="section">
+
+        <div class="section-header">
+
+            <div>
+
+                <div class="eyebrow">
+                    The Resin Studio Shop
+                </div>
+
+                <h2>
+                    Find your
+                    <em>favourite.</em>
+                </h2>
+
+            </div>
+
+            <p class="section-header-description">
+                Choose a category or search for something
+                specific.
+            </p>
+
+        </div>
+
+
+        <!-- CONTROLS -->
+
+        <div class="shop-controls">
+
+            <div class="filter-buttons">
+
+                <button type="button"
+                    class="filter-button active"
+                    data-filter="all">
+                    All
+                </button>
+
+                <button type="button"
+                    class="filter-button"
+                    data-filter="keychains">
+                    Keychains
+                </button>
+
+                <button type="button"
+                    class="filter-button"
+                    data-filter="bookmarks">
+                    Bookmarks
+                </button>
+
+                <button type="button"
+                    class="filter-button"
+                    data-filter="pens">
+                    Pens
+                </button>
+
+                <button type="button"
+                    class="filter-button"
+                    data-filter="jewelry">
+                    Jewelry
+                </button>
+
+                <button type="button"
+                    class="filter-button"
+                    data-filter="home">
+                    Home
+                </button>
+
+                <!-- FIX: Canvas filter -->
+                <button type="button"
+                    class="filter-button"
+                    data-filter="canvas">
+                    Canvas
+                </button>
+
+            </div>
+
+
+            <div class="shop-search">
+
+                <input
+                    type="search"
+                    id="shopSearch"
+                    placeholder="Search products..."
+                    aria-label="Search products"
+                    autocomplete="off">
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCTS -->
+
+        <div class="shop-grid" id="shopProducts">
+
+
+            <!-- ================= KEYCHAINS ================= -->
+
+            <article class="product-card shop-product"
+                data-id="alphabets-keychain"
+                data-category="keychains"
+                data-name="Alphabets Keychain"
+                data-description="Custom alphabet resin keychain"
+                data-price="5"
+                data-customizable="true"
+                data-alphabet="true">
+
+                <div class="product-image">
+                    <img src="images/alphabets.png"
+                        alt="Alphabets Keychain">
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">
+                        Keychains
+                    </div>
+
+                    <h3>Alphabets</h3>
+
+                    <div class="product-price">
+                        5 SAR
+                    </div>
+
+                    <button type="button"
+                        class="add-to-cart"
+                        data-product="Alphabets Keychain"
+                        data-price="5"
+                        data-category="Keychains"
+                        data-customizable="true"
+                        data-alphabet="true">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <article class="product-card shop-product"
+                data-id="large-keychain"
+                data-category="keychains"
+                data-name="Large Keychain"
+                data-description="Large handcrafted resin keychain"
+                data-price="5"
+                data-customizable="true">
+
+                <div class="product-image">
+                    <img src="images/large-keychain.png"
+                        alt="Large Keychain">
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">Keychains</div>
+                    <h3>Large</h3>
+                    <div class="product-price">5 SAR</div>
+
+                    <button type="button"
+                        class="add-to-cart"
+                        data-product="Large Keychain"
+                        data-price="5"
+                        data-category="Keychains"
+                        data-customizable="true">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <article class="product-card shop-product"
+                data-id="small-keychain"
+                data-category="keychains"
+                data-name="Small Keychain"
+                data-description="Small handcrafted resin keychain"
+                data-price="3"
+                data-customizable="true">
+
+                <div class="product-image">
+                    <img src="images/small-keychain.png"
+                        alt="Small Keychain">
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">Keychains</div>
+                    <h3>Small</h3>
+                    <div class="product-price">3 SAR</div>
+
+                    <button type="button"
+                        class="add-to-cart"
+                        data-product="Small Keychain"
+                        data-price="3"
+                        data-category="Keychains"
+                        data-customizable="true">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <article class="product-card shop-product"
+                data-id="heart-keychain"
+                data-category="keychains"
+                data-name="Heart Keychain"
+                data-description="Handcrafted heart resin keychain"
+                data-price="4"
+                data-customizable="true">
+
+                <div class="product-image">
+                    <img src="images/heart-keychain.png"
+                        alt="Heart Keychain">
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">Keychains</div>
+                    <h3>Heart</h3>
+                    <div class="product-price">4 SAR</div>
+
+                    <button type="button"
+                        class="add-to-cart"
+                        data-product="Heart Keychain"
+                        data-price="4"
+                        data-category="Keychains"
+                        data-customizable="true">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <article class="product-card shop-product"
+                data-id="butterfly-keychain"
+                data-category="keychains"
+                data-name="Butterfly Keychain"
+                data-description="Handcrafted butterfly resin keychain"
+                data-price="3"
+                data-customizable="true">
+
+                <div class="product-image">
+                    <img src="images/butterfly-keychain.png"
+                        alt="Butterfly Keychain">
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">Keychains</div>
+                    <h3>Butterfly</h3>
+                    <div class="product-price">3 SAR</div>
+
+                    <button type="button"
+                        class="add-to-cart"
+                        data-product="Butterfly Keychain"
+                        data-price="3"
+                        data-category="Keychains"
+                        data-customizable="true">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <article class="product-card shop-product"
+                data-id="bff-keychain"
+                data-category="keychains"
+                data-name="BFF Keychain"
+                data-description="BFF resin keychain"
+                data-price="5"
+                data-customizable="true">
+
+                <div class="product-image">
+                    <img src="images/bff.png"
+                        alt="BFF Keychain">
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">Keychains</div>
+                    <h3>BFF</h3>
+                    <div class="product-price">5 SAR</div>
+
+                    <button type="button"
+                        class="add-to-cart"
+                        data-product="BFF Keychain"
+                        data-price="5"
+                        data-category="Keychains"
+                        data-customizable="true">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <article class="product-card shop-product"
+                data-id="icecream-simple-keychain"
+                data-category="keychains"
+                data-name="Icecream Simple Keychain"
+                data-description="Simple icecream resin keychain"
+                data-price="5"
+                data-customizable="true">
+
+                <div class="product-image">
+                    <img src="images/icecream-simple.png"
+                        alt="Icecream Simple Keychain">
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">Keychains</div>
+                    <h3>Icecream Simple</h3>
+                    <div class="product-price">5 SAR</div>
+
+                    <button type="button"
+                        class="add-to-cart"
+                        data-product="Icecream Simple Keychain"
+                        data-price="5"
+                        data-category="Keychains"
+                        data-customizable="true">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <article class="product-card shop-product"
+                data-id="icecream-shaker-keychain"
+                data-category="keychains"
+                data-name="Icecream Shaker Keychain"
+                data-description="Icecream shaker resin keychain"
+                data-price="7"
+                data-customizable="true">
+
+                <div class="product-image">
+                    <img src="images/icecream-shaker.png"
+                        alt="Icecream Shaker Keychain">
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">Keychains</div>
+                    <h3>Icecream Shaker</h3>
+                    <div class="product-price">7 SAR</div>
+
+                    <button type="button"
+                        class="add-to-cart"
+                        data-product="Icecream Shaker Keychain"
+                        data-price="7"
+                        data-category="Keychains"
+                        data-customizable="true">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <article class="product-card shop-product"
+                data-id="sea-effect-keychain"
+                data-category="keychains"
+                data-name="Sea Effect Keychain"
+                data-description="Sea effect resin keychain"
+                data-price="5"
+                data-customizable="true">
+
+                <div class="product-image">
+                    <img src="images/sea-effect.png"
+                        alt="Sea Effect Keychain">
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">Keychains</div>
+                    <h3>Sea Effect</h3>
+                    <div class="product-price">5 SAR</div>
+
+                    <button type="button"
+                        class="add-to-cart"
+                        data-product="Sea Effect Keychain"
+                        data-price="5"
+                        data-category="Keychains"
+                        data-customizable="true">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <article class="product-card shop-product"
+                data-id="shell-pearls-keychain"
+                data-category="keychains"
+                data-name="Shell and Pearls Keychain"
+                data-description="Shell and pearls resin keychain"
+                data-price="10"
+                data-customizable="true">
+
+                <div class="product-image">
+                    <img src="images/shell-pearls.png"
+                        alt="Shell and Pearls Keychain">
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">Keychains</div>
+                    <h3>Shell &amp; Pearls</h3>
+                    <div class="product-price">10 SAR</div>
+
+                    <button type="button"
+                        class="add-to-cart"
+                        data-product="Shell and Pearls Keychain"
+                        data-price="10"
+                        data-category="Keychains"
+                        data-customizable="true">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- ================= BOOKMARKS ================= -->
+
+            <article class="product-card shop-product"
+                data-id="simple-bookmark"
+                data-category="bookmarks"
+                data-name="Simple Bookmark"
+                data-description="Simple handcrafted resin bookmark"
+                data-price="5"
+                data-customizable="true">
+
+                <div class="product-image">
+                    <img src="images/simple-bookmark.png"
+                        alt="Simple Bookmark">
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">Bookmarks</div>
+                    <h3>Simple</h3>
+                    <div class="product-price">5 SAR</div>
+
+                    <button type="button"
+                        class="add-to-cart"
+                        data-product="Simple Bookmark"
+                        data-price="5"
+                        data-category="Bookmarks"
+                        data-customizable="true">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <article class="product-card shop-product"
+                data-id="golden-leaf-bookmark"
+                data-category="bookmarks"
+                data-name="Golden Leaf Design Bookmark"
+                data-description="Golden leaf resin bookmark"
+                data-price="5"
+                data-customizable="true">
+
+                <div class="product-image">
+                    <img src="images/golden-leaf.png"
+                        alt="Golden Leaf Bookmark">
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">Bookmarks</div>
+                    <h3>Golden Leaf Design</h3>
+                    <div class="product-price">5 SAR</div>
+
+                    <button type="button"
+                        class="add-to-cart"
+                        data-product="Golden Leaf Design Bookmark"
+                        data-price="5"
+                        data-category="Bookmarks"
+                        data-customizable="true">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <article class="product-card shop-product"
+                data-id="flower-bookmark"
+                data-category="bookmarks"
+                data-name="Flower Bookmark"
+                data-description="Flower resin bookmark"
+                data-price="6"
+                data-customizable="true">
+
+                <div class="product-image">
+                    <img src="images/flower-bookmark.png"
+                        alt="Flower Bookmark">
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">Bookmarks</div>
+                    <h3>Flower</h3>
+                    <div class="product-price">6 SAR</div>
+
+                    <button type="button"
+                        class="add-to-cart"
+                        data-product="Flower Bookmark"
+                        data-price="6"
+                        data-category="Bookmarks"
+                        data-customizable="true">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <article class="product-card shop-product"
+                data-id="simple-vinyl-bookmark"
+                data-category="bookmarks"
+                data-name="Simple Vinyl Bookmark"
+                data-description="Simple vinyl resin bookmark"
+                data-price="7"
+                data-customizable="true">
+
+                <div class="product-image">
+                    <img src="images/simple-vinyl.png"
+                        alt="Simple Vinyl Bookmark">
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">Bookmarks</div>
+                    <h3>Simple Vinyl</h3>
+                    <div class="product-price">7 SAR</div>
+
+                    <button type="button"
+                        class="add-to-cart"
+                        data-product="Simple Vinyl Bookmark"
+                        data-price="7"
+                        data-category="Bookmarks"
+                        data-customizable="true">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <article class="product-card shop-product"
+                data-id="floral-vinyl-bookmark"
+                data-category="bookmarks"
+                data-name="Floral Vinyl Bookmark"
+                data-description="Floral vinyl resin bookmark"
+                data-price="8"
+                data-customizable="true">
+
+                <div class="product-image">
+                    <img src="images/floral-vinyl.png"
+                        alt="Floral Vinyl Bookmark">
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">Bookmarks</div>
+                    <h3>Floral Vinyl</h3>
+                    <div class="product-price">8 SAR</div>
+
+                    <button type="button"
+                        class="add-to-cart"
+                        data-product="Floral Vinyl Bookmark"
+                        data-price="8"
+                        data-category="Bookmarks"
+                        data-customizable="true">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- ================= PENS ================= -->
+
+            <article class="product-card shop-product"
+                data-id="pen-pendant"
+                data-category="pens"
+                data-name="Pen with Pendant"
+                data-description="Resin pen with pendant"
+                data-price="6"
+                data-customizable="true">
+
+                <div class="product-image">
+                    <img src="images/pen-pendant.png"
+                        alt="Pen with Pendant">
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">Pens</div>
+                    <h3>Pen with Pendant</h3>
+                    <div class="product-price">6 SAR</div>
+
+                    <button type="button"
+                        class="add-to-cart"
+                        data-product="Pen with Pendant"
+                        data-price="6"
+                        data-category="Pens"
+                        data-customizable="true">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <article class="product-card shop-product"
+                data-id="pen"
+                data-category="pens"
+                data-name="Pen without Pendant"
+                data-description="Resin pen without pendant"
+                data-price="5"
+                data-customizable="true">
+
+                <div class="product-image">
+                    <img src="images/pen.png"
+                        alt="Pen without Pendant">
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">Pens</div>
+                    <h3>Pen without Pendant</h3>
+                    <div class="product-price">5 SAR</div>
+
+                    <button type="button"
+                        class="add-to-cart"
+                        data-product="Pen without Pendant"
+                        data-price="5"
+                        data-category="Pens"
+                        data-customizable="true">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- ================= JEWELRY ================= -->
+
+            <article class="product-card shop-product"
+                data-id="small-jewelry-box"
+                data-category="jewelry"
+                data-name="Small Jewelry Box"
+                data-description="Small handcrafted resin jewelry box"
+                data-price="30"
+                data-customizable="true">
+
+                <div class="product-image">
+                    <img src="images/small-jewelry-box.png"
+                        alt="Small Jewelry Box">
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">Jewelry</div>
+                    <h3>Small Jewelry Box</h3>
+                    <div class="product-price">30 SAR</div>
+
+                    <button type="button"
+                        class="add-to-cart"
+                        data-product="Small Jewelry Box"
+                        data-price="30"
+                        data-category="Jewelry"
+                        data-customizable="true">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <article class="product-card shop-product"
+                data-id="medium-jewelry-box"
+                data-category="jewelry"
+                data-name="Medium Jewelry Box"
+                data-description="Medium handcrafted resin jewelry box"
+                data-price="50"
+                data-customizable="true">
+
+                <div class="product-image">
+                    <img src="images/medium-jewelry-box.png"
+                        alt="Medium Jewelry Box">
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">Jewelry</div>
+                    <h3>Medium Jewelry Box</h3>
+                    <div class="product-price">50 SAR</div>
+
+                    <button type="button"
+                        class="add-to-cart"
+                        data-product="Medium Jewelry Box"
+                        data-price="50"
+                        data-category="Jewelry"
+                        data-customizable="true">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <article class="product-card shop-product"
+                data-id="large-jewelry-box"
+                data-category="jewelry"
+                data-name="Large Jewelry Box"
+                data-description="Large resin jewelry box that can also be used as a Quran box"
+                data-price="75"
+                data-customizable="true">
+
+                <div class="product-image">
+                    <img src="images/large-jewelry-box.png"
+                        alt="Large Jewelry Box">
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">Jewelry</div>
+                    <h3>Large Jewelry Box</h3>
+                    <div class="product-price">75 SAR</div>
+
+                    <p class="muted">
+                        Can also be used as a Quran box.
+                    </p>
+
+                    <button type="button"
+                        class="add-to-cart"
+                        data-product="Large Jewelry Box"
+                        data-price="75"
+                        data-category="Jewelry"
+                        data-customizable="true">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <article class="product-card shop-product"
+                data-id="resin-tray"
+                data-category="jewelry"
+                data-name="Resin Tray"
+                data-description="Handcrafted resin tray"
+                data-price="30"
+                data-customizable="true">
+
+                <div class="product-image">
+                    <img src="images/tray.png"
+                        alt="Resin Tray">
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">Jewelry</div>
+                    <h3>Tray</h3>
+                    <div class="product-price">30 SAR</div>
+
+                    <button type="button"
+                        class="add-to-cart"
+                        data-product="Resin Tray"
+                        data-price="30"
+                        data-category="Jewelry"
+                        data-customizable="true">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <article class="product-card shop-product"
+                data-id="resin-comb"
+                data-category="jewelry"
+                data-name="Resin Comb"
+                data-description="Handcrafted resin comb"
+                data-price="8"
+                data-customizable="true">
+
+                <div class="product-image">
+                    <img src="images/comb.png"
+                        alt="Resin Comb">
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">
+                        Jewelry &amp; Accessories
+                    </div>
+
+                    <h3>Comb</h3>
+                    <div class="product-price">8 SAR</div>
+
+                    <button type="button"
+                        class="add-to-cart"
+                        data-product="Resin Comb"
+                        data-price="8"
+                        data-category="Jewelry"
+                        data-customizable="true">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <article class="product-card shop-product"
+                data-id="small-earrings"
+                data-category="jewelry"
+                data-name="Small Earrings"
+                data-description="Small resin earrings"
+                data-price="3"
+                data-customizable="true">
+
+                <div class="product-image">
+                    <img src="images/small-earrings.png"
+                        alt="Small Earrings">
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">Jewelry</div>
+                    <h3>Small Earrings</h3>
+                    <div class="product-price">3 SAR</div>
+
+                    <button type="button"
+                        class="add-to-cart"
+                        data-product="Small Earrings"
+                        data-price="3"
+                        data-category="Jewelry"
+                        data-customizable="true">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <article class="product-card shop-product"
+                data-id="large-earrings"
+                data-category="jewelry"
+                data-name="Large Earrings"
+                data-description="Large resin earrings"
+                data-price="5"
+                data-customizable="true">
+
+                <div class="product-image">
+                    <img src="images/large-earrings.png"
+                        alt="Large Earrings">
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">Jewelry</div>
+                    <h3>Large Earrings</h3>
+                    <div class="product-price">5 SAR</div>
+
+                    <button type="button"
+                        class="add-to-cart"
+                        data-product="Large Earrings"
+                        data-price="5"
+                        data-category="Jewelry"
+                        data-customizable="true">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <article class="product-card shop-product"
+                data-id="jhumka-earrings"
+                data-category="jewelry"
+                data-name="Jhumka Earrings"
+                data-description="Handcrafted resin jhumka earrings"
+                data-price="15"
+                data-customizable="true">
+
+                <div class="product-image">
+                    <img src="images/jhumka.png"
+                        alt="Jhumka Earrings">
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">Jewelry</div>
+                    <h3>Jhumka Earrings</h3>
+                    <div class="product-price">15 SAR</div>
+
+                    <button type="button"
+                        class="add-to-cart"
+                        data-product="Jhumka Earrings"
+                        data-price="15"
+                        data-category="Jewelry"
+                        data-customizable="true">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <article class="product-card shop-product"
+                data-id="locket-set"
+                data-category="jewelry"
+                data-name="Locket Set"
+                data-description="Resin locket set"
+                data-price="8"
+                data-customizable="true">
+
+                <div class="product-image">
+                    <img src="images/locket-set.png"
+                        alt="Locket Set">
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">Jewelry</div>
+                    <h3>Locket Set</h3>
+                    <div class="product-price">8 SAR</div>
+
+                    <button type="button"
+                        class="add-to-cart"
+                        data-product="Locket Set"
+                        data-price="8"
+                        data-category="Jewelry"
+                        data-customizable="true">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <article class="product-card shop-product"
+                data-id="resin-hair-clips"
+                data-category="jewelry"
+                data-name="Resin Hair Clips"
+                data-description="Handcrafted resin hair clips"
+                data-price="2"
+                data-customizable="true">
+
+                <div class="product-image">
+                    <img src="images/hair-clips.png"
+                        alt="Resin Hair Clips">
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">Jewelry</div>
+                    <h3>Hair Clips</h3>
+                    <div class="product-price">2 SAR</div>
+
+                    <button type="button"
+                        class="add-to-cart"
+                        data-product="Resin Hair Clips"
+                        data-price="2"
+                        data-category="Jewelry"
+                        data-customizable="true">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- ================= HOME ================= -->
+
+            <article class="product-card shop-product"
+                data-id="resin-coaster"
+                data-category="home"
+                data-name="Resin Coaster"
+                data-description="Handcrafted resin coaster"
+                data-price="7"
+                data-customizable="true">
+
+                <div class="product-image">
+                    <img src="images/coaster.png"
+                        alt="Resin Coaster">
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">Home</div>
+                    <h3>Coaster</h3>
+                    <div class="product-price">7 SAR</div>
+
+                    <button type="button"
+                        class="add-to-cart"
+                        data-product="Resin Coaster"
+                        data-price="7"
+                        data-category="Home"
+                        data-customizable="true">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- ================= CANVAS ================= -->
+
+            <article class="product-card shop-product"
+                data-id="canvas"
+                data-category="canvas"
+                data-name="Canvas"
+                data-description="Handcrafted customizable resin canvas"
+                data-price="50"
+                data-customizable="true">
+
+                <div class="product-image">
+                    <img src="images/canvas.png"
+                        alt="Canvas">
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">Canvas</div>
+                    <h3>Canvas</h3>
+                    <div class="product-price">50 SAR</div>
+
+                    <button type="button"
+                        class="add-to-cart"
+                        data-product="Canvas"
+                        data-price="50"
+                        data-category="Canvas"
+                        data-customizable="true">
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <!-- NO RESULTS -->
+
+        <div id="noProducts"
+            class="empty-cart"
+            style="display: none;">
+
+            <h3>Nothing found.</h3>
+
+            <p class="muted">
+                Try another search or category.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- CUSTOM ORDER CTA -->
+
+    <section class="section-dark">
+
+        <div class="section">
+
+            <div class="content-card reveal"
+                style="text-align: center;">
+
+                <div class="eyebrow"
+                    style="justify-content: center;">
+
+                    Can't Find It?
+
+                </div>
+
+                <h2>
+                    Make it
+                    <em>personal.</em>
+                </h2>
+
+                <p class="large-text"
+                    style="max-width: 650px; margin: 0 auto 30px;">
+
+                    Have a colour, shape, name or idea in mind?
+                    Send us your custom request.
+
+                </p>
+
+                <a href="custom-orders.html"
+                    class="primary-button">
+
+                    Request Custom Order
+                    <span>→</span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =====================================================
+     CUSTOMIZATION MODAL
+====================================================== -->
+
+<div class="customization-modal"
+    id="customizationModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="customizationProductName"
+    aria-describedby="customizationModalDescription"
+    style="display: none;">
+
+    <div class="customization-overlay"
+        id="customizationOverlay"
+        aria-hidden="true"></div>
+
+    <div class="customization-box" role="document">
+
+        <button type="button"
+            class="customization-close"
+            id="closeCustomization"
+            aria-label="Close customization window">
+            ×
+        </button>
+
+        <div class="eyebrow">
+            Personalise Your Order
+        </div>
+
+        <h2 id="customizationProductName">
+            Customize your item
+        </h2>
+
+        <p class="muted" id="customizationModalDescription">
+            Choose your preferences before adding this item to your cart.
+        </p>
+
+        <form id="customizationForm" novalidate>
+
+            <!-- NAME ON ITEM -->
+            <div class="customization-field">
+
+                <label for="productNameText">
+                    Name on Item <span aria-hidden="true">(+1 SAR)</span>
+                </label>
+
+                <input
+                    type="text"
+                    id="productNameText"
+                    name="nameOnItem"
+                    data-name-charge="1"
+                    maxlength="100"
+                    placeholder="Enter a name (optional)"
+                    autocomplete="off">
+
+            </div>
+
+
+            <!-- COLOR -->
+            <div class="customization-field">
+
+                <label for="productColor">
+                    Colour
+                </label>
+
+                <select
+                    id="productColor"
+                    name="color">
+
+                    <option value="">
+                        Select a colour
+                    </option>
+
+                    <option value="Clear">
+                        Clear
+                    </option>
+
+                    <option value="White">
+                        White
+                    </option>
+
+                    <option value="Black">
+                        Black
+                    </option>
+
+                    <option value="Pink">
+                        Pink
+                    </option>
+
+                    <option value="Blue">
+                        Blue
+                    </option>
+
+                    <option value="Purple">
+                        Purple
+                    </option>
+
+                    <option value="Green">
+                        Green
+                    </option>
+
+                    <option value="Yellow">
+                        Yellow
+                    </option>
+
+                    <option value="Red">
+                        Red
+                    </option>
+
+                    <option value="Gold">
+                        Gold
+                    </option>
+
+                    <option value="Silver">
+                        Silver
+                    </option>
+
+                    <option value="Custom / Other">
+                        Custom Colour
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- CUSTOM COLOUR -->
+            <div class="customization-field"
+                id="customColorField"
+                style="display: none;">
+
+                <label for="productCustomColor">
+                    Your custom colour
+                </label>
+
+                <input
+                    type="text"
+                    id="productCustomColor"
+                    name="customColor"
+                    placeholder="e.g. Lavender, mint green, pastel blue...">
+
+            </div>
+
+
+            <!-- ALPHABET -->
+            <div class="customization-field"
+                id="alphabetField"
+                style="display: none;">
+
+                <label for="productAlphabet">
+                    Choose your alphabet
+                </label>
+
+                <select
+                    id="productAlphabet"
+                    name="alphabet">
+
+                    <option value="">
+                        Select a letter
+                    </option>
+
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                    <option value="F">F</option>
+                    <option value="G">G</option>
+                    <option value="H">H</option>
+                    <option value="I">I</option>
+                    <option value="J">J</option>
+                    <option value="K">K</option>
+                    <option value="L">L</option>
+                    <option value="M">M</option>
+                    <option value="N">N</option>
+                    <option value="O">O</option>
+                    <option value="P">P</option>
+                    <option value="Q">Q</option>
+                    <option value="R">R</option>
+                    <option value="S">S</option>
+                    <option value="T">T</option>
+                    <option value="U">U</option>
+                    <option value="V">V</option>
+                    <option value="W">W</option>
+                    <option value="X">X</option>
+                    <option value="Y">Y</option>
+                    <option value="Z">Z</option>
+
+                </select>
+
+            </div>
+
+
+            <!-- DESCRIPTION -->
+            <div class="customization-field">
+
+                <label for="productDescription">
+                    Special Request / Description
+                </label>
+
+                <textarea
+                    id="productDescription"
+                    name="description"
+                    rows="4"
+                    placeholder="Tell us anything you'd like us to know about your order..."></textarea>
+
+            </div>
+
+
+            <!-- QUANTITY -->
+            <div class="customization-field">
+
+                <label for="productQuantity">
+                    Quantity
+                </label>
+
+                <input
+                    type="number"
+                    id="productQuantity"
+                    name="quantity"
+                    min="1"
+                    step="1"
+                    value="1"
+                    inputmode="numeric">
+
+            </div>
+
+
+            <!-- PRODUCT SUMMARY -->
+            <div class="customization-summary"
+                aria-live="polite">
+
+                <div class="customization-summary-row">
+
+                    <span>
+                        Product
+                    </span>
+
+                    <span id="customizationSummaryProduct">
+                        Product
+                    </span>
+
+                </div>
+
+
+                <div class="customization-summary-row">
+
+                    <span>
+                        Base price
+                    </span>
+
+                    <span id="customizationBasePrice">
+                        0 SAR
+                    </span>
+
+                </div>
+
+
+                <div class="customization-summary-row">
+
+                    <span>
+                        Name charge
+                    </span>
+
+                    <span id="customizationExtraPrice">
+                        +0 SAR
+                    </span>
+
+                </div>
+
+
+                <div class="customization-summary-row">
+
+                    <span>
+                        Quantity
+                    </span>
+
+                    <span id="customizationSummaryQuantity">
+                        1
+                    </span>
+
+                </div>
+
+
+                <div class="customization-summary-row customization-summary-total">
+
+                    <strong>
+                        Final total
+                    </strong>
+
+                    <strong id="customizationSummaryPrice">
+                        0 SAR
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONFIRM -->
+            <button type="button"
+                class="primary-button customization-add"
+                id="confirmAddToCart">
+
+                Add to Cart
+
+                <span>→</span>
+
+            </button>
+
+
+            <!-- CANCEL -->
+            <button type="button"
+                class="secondary-button"
+                id="cancelCustomization"
+                style="width: 100%; margin-top: 12px; justify-content: center;">
+
+                Cancel
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     CART NOTIFICATION
+====================================================== -->
+
+<div class="cart-notification"
+    id="cartNotification"
+    role="status"
+    aria-live="polite">
+
+    <strong>
+        Added to cart
+    </strong>
+
+    <p id="notificationProduct">
+        Product added successfully.
+    </p>
+
+    <a href="cart.html">
+        View Cart →
+    </a>
+
+</div>
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer class="footer">
+
+    <div class="footer-grid">
+
+        <div>
+
+            <a href="index.html" class="logo">
+
+                <div class="logo-mark">
+                    R
+                </div>
+
+                <div class="logo-text">
+                    THE RESIN
+                    <span>STUDIO</span>
+                </div>
+
+            </a>
+
+            <p>
+                Handcrafted resin pieces made with
+                patience, creativity and a whole lot of heart.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Explore
+            </h4>
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="artwork.html">
+                    Artwork
+                </a>
+
+                <a href="collections.html">
+                    Collections
+                </a>
+
+                <a href="shop.html">
+                    Shop
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Studio
+            </h4>
+
+            <div class="footer-links">
+
+                <a href="about.html">
+                    About
+                </a>
+
+                <a href="process.html">
+                    Our Process
+                </a>
+
+                <a href="custom-orders.html">
+                    Custom Orders
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Contact
+            </h4>
+
+            <div class="footer-links">
+
+                <a href="mailto:2339008068haf@gmail.com">
+                    Email Us
+                </a>
+
+                <a href="tel:0545695712">
+                    0545695712
+                </a>
+
+                <a href="cart.html">
+                    View Cart
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <span>
+            © <span data-current-year>2026</span> The Resin Studio.
+            All rights reserved.
+        </span>
+
+        <span>
+            Handcrafted with care.
+        </span>
+
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script src="main.js"></script>
+</body> </html>
